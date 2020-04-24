@@ -16,7 +16,8 @@ public class TestDemo {
         myLinkedList.addLast(6);
         myLinkedList.display();//
 
-        System.out.println(myLinkedList.middleNode().data);
+
+        /*System.out.println(myLinkedList.middleNode().data);*/
 
         /*Node ret = myLinkedList.reverseList();
         myLinkedList.display2(ret);*/
