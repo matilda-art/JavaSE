@@ -7,6 +7,9 @@
 public class TestDemo {
 
     public static void main(String[] args) {
+
+
+
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.addLast(1);
         myLinkedList.addLast(2);

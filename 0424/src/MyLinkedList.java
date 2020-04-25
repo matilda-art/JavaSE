@@ -267,7 +267,7 @@ public class MyLinkedList {
         return bs;
     }
 
-    // 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
+    //在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
     public Node deleteDuplication() {
         Node newHead = new Node(-1);
         Node cur = this.head;
@@ -330,5 +330,106 @@ public class MyLinkedList {
             this.head = this.head.next;
         }
         return true;
+    }
+
+
+    //给定一个链表，判断链表中是否有环
+    public boolean hasCycle() {
+        Node fast = this.head;
+        Node slow = this.head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        if (fast == null && fast.next == null) {
+            return false;
+        }
+    }
+
+    //给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回null
+    public Node detectCycle(){
+        Node fast = this.head;
+        Node slow = this.head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+        if (fast == null || fast.next == null){
+            return null;
+        }
+        slow = this.head;
+        while (fast !=slow) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    //输入两个链表，找出它们的第一个公共结点
+    public static Node getIntersectionNode(Node headA, Node headB) {
+        //1、求长度，走差值步
+        Node pl = headA;
+        Node ps = headB;
+        Node cur = headA;
+        int lenA = 0;
+        int lenB = 0;
+        while (cur != null) {
+            lenA++;
+            pl = pl.next;
+        }
+        while (ps != null){
+            lenB++;
+            ps = ps.next;
+        }
+        pl = headA;
+        ps = headB;
+        int len = lenA - lenB;
+        if (len < 0){
+            pl = headB;
+            ps = headA;
+            len = lenB - lenA;
+        }
+        for (int i = 0;i < len;i++){
+            pl = pl.next;
+        }
+        while (ps != pl && pl != null && ps != null){
+            ps = ps.next;
+            pl = pl.next;
+        }
+        if (pl == ps && pl != null){
+            return pl;
+        }
+        return null;
+    }
+
+    //将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的
+    public Node mergeTwoLists(Node headA, Node headB) {
+        Node newHead = new Node(-1);
+        Node tmp = newHead;
+        while (headA != null && headB != null){
+            if (headA.data < headB.data){
+                tmp.next = headA;
+                tmp = tmp.next;
+                headA = headA.next;
+            }else {
+                tmp.next = headB;
+                tmp = tmp.next;
+                headB = headB.next;
+            }
+        }
+        if (headA == null){
+            tmp.next = headB;
+        }else {
+            tmp.next = headA;
+        }
+        return newHead.next;
     }
 }
