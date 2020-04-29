@@ -4,6 +4,7 @@
  * @author: matilda
  * @create: 2020-04-26 18:37
  **/
+
 class Node{
     public int data;
     public Node next;
