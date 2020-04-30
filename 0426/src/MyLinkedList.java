@@ -159,6 +159,7 @@ public class MyLinkedList {
         System.out.println();
     }
 
+    //清空
     public void clear(){
         //this.head = null;
         while(this.head != null) {
