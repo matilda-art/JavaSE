@@ -45,7 +45,6 @@ public class MyLinkedList {
         node.prev = this.tail;
         this.tail = node;
     }
-
     
     private Node searchIndex(int index) {
         //1、对index进行合法性检查
