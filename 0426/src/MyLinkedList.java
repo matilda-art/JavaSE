@@ -46,6 +46,7 @@ public class MyLinkedList {
         this.tail = node;
     }
     
+    
     private Node searchIndex(int index) {
         //1、对index进行合法性检查
         if (index < 0 || index > this.size()) {
