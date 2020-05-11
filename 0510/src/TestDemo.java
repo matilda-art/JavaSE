@@ -8,7 +8,7 @@ import java.util.*;
  **/
 public class TestDemo {
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Map<String,String> map = new HashMap<>();
         map.put("我老公","朱一龙");
         map.put("我老婆","石原里美");
@@ -16,8 +16,9 @@ public class TestDemo {
         System.out.println(map);
         System.out.println(map.size());
         System.out.println(map.isEmpty());
-        System.out.println(map.get("胡悦"));
-        System.out.println(map.getOrDefault("我","死人"));
+        System.out.println(map.get("我"));
+        String s = map.getOrDefault("胡悦","死人");
+        System.out.println(s);
         System.out.println(map.containsKey("我老婆"));
         System.out.println(map.containsValue("石原里美"));
         for (Map.Entry<String,String> entry : map.entrySet()){
